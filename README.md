@@ -11,7 +11,7 @@ Phrase usage, occurence (times) and context (if needed) of every matching result
 
 Put your corpus files (all in txt format) in a directory.
 
-We also prepare a demo corpus (CVPR 2018-2019) in case you don't have one [[download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
+We also prepare a demo corpus (CVPR 2018-2019) in case you don't have one [[Download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
 
 ## Code Usage
 
@@ -23,7 +23,7 @@ We also prepare a demo corpus (CVPR 2018-2019) in case you don't have one [[down
    python find_corpus.py
    ```
 
-3. Input the pattern
+3. Input the pattern, here are some examples:
 
    ```bash
    pattern:
