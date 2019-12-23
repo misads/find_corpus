@@ -19,6 +19,7 @@ def p(v):
     else:
         print(v)
 
+
 def color_print(text='', color=0, end=''):
     """
         Example:
@@ -40,6 +41,19 @@ def color_print(text='', color=0, end=''):
     print('\033[1;3%dm' % color, end='')
     print(text, end='')
     print('\033[0m', end=end)
+
+
+def get_file_name(path):
+    """
+        example:
+            get_file_name('train/0001.jpg')
+            returns 0001
+
+        :param path:
+        :return: filename
+    """
+    name, _ = os.path.splitext(os.path.basename(path))
+    return name
 
 
 def get_file_paths_by_pattern(folder, pattern='*'):

@@ -13,7 +13,7 @@ import os.path as osp
 import pdb
 import re
 
-from utils import get_file_paths_by_pattern, p
+from utils import get_file_paths_by_pattern, p, get_file_name
 from utils import color_print
 from utils import progress_bar
 root_dir = '.'
@@ -60,13 +60,13 @@ for i, file in enumerate(all_files):
                 results[result] = 1
                 if show_context:
                     m1, m2 = i.span()[0], i.span()[1]
-                    context[result] = [text[m1-70: m2+70] + '... ('+text[:50]]
+                    context[result] = [text[m1-70: m2+70] + '... (' + get_file_name(file) + ')']
                 num_results += 1
             else:
                 results[result] += 1
                 if show_context:
                     m1, m2 = i.span()[0], i.span()[1]
-                    context[result].append(text[m1-70: m2+70] + '... ('+ text[:50])
+                    context[result].append(text[m1-70: m2+70] + '... (' + get_file_name(file) + ')')
             # print(i.span())
 
 
@@ -100,7 +100,7 @@ with open('result.txt', 'w') as f:
             if show_context:
                 for j in context[i[0]]:
                     print('    ...', end='')
-                    print(j.replace('\n', '+').replace(i[0], '\033[4;33m%s\033[0m' % i[0])+'...')
+                    print(j.replace('\n', '+').replace(i[0], '\033[4;33m%s\033[0m' % i[0]))
         else:
             line = '%s (%d times)' % (i[0], i[1])
             f.writelines(line+'\n')
