@@ -12,6 +12,7 @@ import os
 import os.path as osp
 import pdb
 import re
+import sys
 
 from utils import get_file_paths_by_pattern, p, get_file_name
 from utils import color_print
@@ -20,6 +21,19 @@ root_dir = '.'
 min_times = 1
 max_length = 50
 max_display = 30
+
+if len(sys.argv) > 1 and (sys.argv[1] == '--help' or sys.argv[1] == '-h'):
+
+    description="""
+  Example patterns:\n
+  >>> as ? in fig           # ? matchs any one word
+  >>> code * publicly       # * matchs [0-n] words
+  >>> (show|demonstrate|achieve) ? results   # Multiple choice words
+  >>> show[ns]? ? results   # RegEx matching
+  >>> ### ? feature fusion  # use ### to show context
+    """
+    print(description)
+    exit()
 
 
 all_files = []
