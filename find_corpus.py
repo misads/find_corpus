@@ -13,11 +13,12 @@ import os.path as osp
 import pdb
 import re
 import sys
+import readline
 
 from utils import get_file_paths_by_pattern, p, get_file_name
 from utils import color_print
 from utils import progress_bar
-root_dir = '.'
+root_dir = 'txt'
 min_times = 1
 max_length = 50
 max_display = 30
