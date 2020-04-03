@@ -25,7 +25,7 @@ max_display = 30
 
 
 description="""
-  Example patterns:\n
+Usage:
   >>> as ? in fig           # ? matchs any one word
   >>> code * publicly       # * matchs [0-n] words
   >>> (show|demonstrate|achieve) ? results   # Multiple choice words
@@ -44,7 +44,7 @@ all_files.extend(get_file_paths_by_pattern(root_dir, '*.txt'))
 all_files.extend(get_file_paths_by_pattern(root_dir, '*/*.txt'))
 
 print('\033[1;37m', end='')
-pattern = input('pattern:\n  ')
+pattern = input('pattern:\n  >>> ')
 print('\033[0m', end='')
 pattern = pattern.replace(' ? ', ' \w+ ').replace('*', '(.*)')
 
