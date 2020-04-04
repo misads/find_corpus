@@ -128,7 +128,9 @@ while True:
                 if show_context:
                     for j in context[i[0]]:
                         print('    ...', end='')
-                        print(j.replace('\n', '+').replace(i[0], '\033[4;33m%s\033[0m' % i[0]))
+                        j = j.replace('\n', '+')
+                        j = re.sub('(?i)' + i[0], '\033[4;33m%s\033[0m' % i[0], j)
+                        print(j)
             else:
                 line = '%s (%d times)' % (i[0], i[1])
                 f.writelines(line+'\n')
