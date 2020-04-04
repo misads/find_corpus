@@ -1,23 +1,23 @@
 # find_corpus
-A corpus searcher with RegEx matching and contextual examples.
+A corpus searcher powered by regular expression matching and can give contextual examples.
 
-Phrase usage, occurence (times) and context (if needed) of every matching results will be presented explicitly.
+Just entering a few characters, all phrase usages in related, shown frequencies and context (optional) will be presented immediately.
 
-## Demonstration
+## Features
 
-![demo1](http://www.xyu.ink/wp-content/uploads/2019/12/demo2.png)
+![demo1](http://www.xyu.ink/wp-content/uploads/2020/04/feature2.png)
 
-## Prepare your Corpus
+## Preparing your Corpus
 
-Put your corpus files (all in txt format) in a directory.
+Prepare your corpus files (in `.txt` format) and put **ALL of them** in **ONE** directory.
 
-We also prepare a demo corpus (CVPR 2018-2019) in case you don't have one [[Download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
+We also provide a demo corpus (CVPR 2018-2019) in case you don't have one [[Download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
 
-## Code Usage
+## Getting Started
 
-1. Set `root_dir` to your corpus directory.
+1. Set `root_dir` in `find_corpus.py` to your corpus directory.
 
-2. Run
+2. Then run
 
    ```bash
    python find_corpus.py
@@ -34,6 +34,6 @@ We also prepare a demo corpus (CVPR 2018-2019) in case you don't have one [[Down
    >>> ### ? feature fusion  # use ### to show context
    ```
 
-4.  Results will be given like that of *Demonstration* part.
+4.  Just a moment, results will be given.
 
 
