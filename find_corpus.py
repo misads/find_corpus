@@ -45,10 +45,15 @@ all_files.extend(get_file_paths_by_pattern(root_dir, '*/*.txt'))
 
 while True:
         
-    print('\033[1;37m', end='')
-    pattern = input('pattern:\n  >>> ')
-    print('\033[0m', end='')
-    pattern = pattern.replace(' ? ', ' \w+ ').replace('*', '(.*)')
+    try:
+        print('\033[1;37m', end='')
+        pattern = input('pattern:\n  >>> ')
+        print('\033[0m', end='')
+        pattern = pattern.replace(' ? ', ' \w+ ').replace('*', '(.*)')
+    except KeyboardInterrupt:
+        print()
+        print()
+        continue
 
     show_context = False
     ends_string = ['exit', 'end', 'quit']
@@ -76,26 +81,30 @@ while True:
     results = {}
     num_results = 0
     for i, file in enumerate(all_files):
-        progress_bar(i, len(all_files), pre_msg='Processing...', msg='%d results' % num_results)
-        with open(file, 'r') as f:
-            text = f.read()
-            f = re.finditer(pattern, text, flags=re.IGNORECASE)
-            for i in f:
-                result = i.group().lower()
-                if len(result) > max_length:
-                    continue
-                if result not in results:
-                    results[result] = 1
-                    if show_context:
-                        m1, m2 = i.span()[0], i.span()[1]
-                        context[result] = [text[m1-70: m2+70] + '... (' + get_file_name(file) + ')']
-                    num_results += 1
-                else:
-                    results[result] += 1
-                    if show_context:
-                        m1, m2 = i.span()[0], i.span()[1]
-                        context[result].append(text[m1-70: m2+70] + '... (' + get_file_name(file) + ')')
-                # print(i.span())
+        try:
+            progress_bar(i, len(all_files), pre_msg='Processing...', msg='%d results' % num_results)
+            with open(file, 'r') as f:
+                text = f.read()
+                f = re.finditer(pattern, text, flags=re.IGNORECASE)
+                for i in f:
+                    result = i.group().lower()
+                    if len(result) > max_length:
+                        continue
+                    if result not in results:
+                        results[result] = 1
+                        if show_context:
+                            m1, m2 = i.span()[0], i.span()[1]
+                            context[result] = [text[m1-70: m2+70] + '... (' + get_file_name(file) + ')']
+                        num_results += 1
+                    else:
+                        results[result] += 1
+                        if show_context:
+                            m1, m2 = i.span()[0], i.span()[1]
+                            context[result].append(text[m1-70: m2+70] + '... (' + get_file_name(file) + ')')
+                    # print(i.span())
+        except KeyboardInterrupt:
+            break
+        
 
 
     def print_with_color(sentence: str):
