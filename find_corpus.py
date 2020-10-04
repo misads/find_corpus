@@ -43,20 +43,22 @@ all_files = []
 all_files.extend(get_file_paths_by_pattern(root_dir, '*.txt'))
 all_files.extend(get_file_paths_by_pattern(root_dir, '*/*.txt'))
 
+
+print('\033[1;37mpattern:\033[0m')
+
 while True:
         
     try:
         print('\033[1;37m', end='')
-        pattern = input('pattern:\n  >>> ')
+        pattern = input('  >>> ')
         print('\033[0m', end='')
         pattern = pattern.replace(' ? ', ' \w+ ').replace('*', '(.*)')
     except KeyboardInterrupt:
         print()
-        print()
         continue
 
     show_context = False
-    ends_string = ['exit', 'end', 'quit']
+    ends_string = ['exit', 'end', 'quit', 'q']
 
     if pattern in ends_string:
         exit()
@@ -145,4 +147,5 @@ while True:
                 f.writelines(line+'\n')
 
     print()
+    print('\033[1;37mpattern:\033[0m')
 
