@@ -31,6 +31,7 @@ Usage:
   >>> (show|demonstrate|achieve) ? results   # Multiple choice words
   >>> show[ns]? ? results   # RegEx matching
   >>> ### ? feature fusion  # use ### to show context
+  >>> show all              # show complete results
   >>> exit                  # exit the program
     """
 print(description)
@@ -59,12 +60,25 @@ while True:
 
     show_context = False
     ends_string = ['exit', 'end', 'quit', 'q']
+    help_string = ['help', 'h']
 
     if pattern in ends_string:
         exit()
 
-    if pattern == 'help':
+    if pattern in help_string:
         print(description)
+        continue
+
+    if pattern == 'show all':
+        with open('result.txt', 'r') as f:
+            lines = f.readlines()
+
+        print('\033[1;33m', end='')
+        for line in lines:
+            line = line.rstrip('\n')
+            print('  ' + line)
+
+        print('\033[0m', end='')
         continue
     
     if pattern.startswith('### '):
