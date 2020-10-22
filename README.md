@@ -1,7 +1,7 @@
 # find_corpus
-A corpus searcher powered by regular expression matching and can give contextual examples.
+An intelligent corpus searcher, you can search any expressions you needed with regular expression.
 
-Just entering a few characters, all phrase usages in related, shown frequencies and context (optional) will be presented immediately.
+Just entering the pattern, all matching expressions, shown frequencies and context will be listed.
 
 ## Features
 
@@ -9,9 +9,9 @@ Just entering a few characters, all phrase usages in related, shown frequencies 
 
 ## Preparing your Corpus
 
-Prepare your corpus files (in `.txt` format) and put **ALL of them** in **ONE** directory.
+Prepare your corpus materials (articles, wikis... all in `txt` format) and put them in the same directory, namely `root_dir` in the program.
 
-We also provide a demo corpus (CVPR 2018-2019) in case you don't have one [[Download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
+We also provide a demo corpus (CVPR 2018-2019) in case you don't know how to make your own one [[Download](http://www.xyu.ink/wp-content/uploads/2019/12/CVPR_18-19.zip)].
 
 ## Getting Started
 
@@ -34,6 +34,6 @@ We also provide a demo corpus (CVPR 2018-2019) in case you don't have one [[Down
    >>> ### ? feature fusion  # use ### to show context
    ```
 
-4.  Just a moment, results will be given.
+4.  Waiting for the results.
 
 
