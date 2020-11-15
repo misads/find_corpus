@@ -26,13 +26,14 @@ max_display = 30
 
 description="""
 Usage:
-  >>> as ? in fig           # ? matchs any one word
-  >>> code * publicly       # * matchs [0-n] words
-  >>> (show|demonstrate|achieve) ? results   # Multiple choice words
-  >>> show[ns]? ? results   # RegEx matching
-  >>> ### ? feature fusion  # use ### to show context
-  >>> show all              # show complete results
-  >>> exit                  # exit the program
+  >>> as ? in fig             ? 匹配任意一个单词
+  >>> code * publicly         * 匹配 1~n 个单词
+  >>> (show|provide) results  (A|B|C) 匹配多个单词中的一个
+  >>> show[ns]? ? results     正则表达式匹配
+  >>> comparison is ?ed       匹配以ed结尾的单词
+  >>> ### ? feature fusion    在开头加上 ### 可以显示上下文的语境
+  >>> show all                显示上一次搜索所有的结果
+  >>> exit                    退出
     """
 print(description)
 
@@ -53,14 +54,15 @@ while True:
         print('\033[1;37m', end='')
         pattern = input('  >>> ')
         print('\033[0m', end='')
-        pattern = pattern.replace(' ? ', ' \w+ ').replace('*', '(.*)')
+        pattern = pattern.replace(']?', ']$').replace('*', '(.*)').replace('?', '\w+').replace(']$', ']?')
+
     except KeyboardInterrupt:
         print()
         continue
 
     show_context = False
     ends_string = ['exit', 'end', 'quit', 'q']
-    help_string = ['help', 'h']
+    help_string = ['help', 'h', '\w+']
 
     if pattern in ends_string:
         exit()
@@ -85,13 +87,6 @@ while True:
         pattern = pattern[4:]
         show_context = True
         max_display = min(20, max_display)
-
-    if pattern.startswith('?'):
-        pattern = '\w+' + pattern[1:]
-    if pattern.endswith('?'):
-        pattern = pattern[:-1] + '\w+'
-
-
 
     context = {}
     results = {}
