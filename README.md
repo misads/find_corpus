@@ -10,6 +10,12 @@
 
 <img alt="demo1" src="http://www.xyu.ink/wp-content/uploads/2020/11/corpus2.png" width=800>
 
+## 环境需求
+
+全平台 Windows/Linux/Mac 
+
+Python >= 3.6
+
 ## 准备txt格式的语料素材
 
 准备你自己的语料素材，它们可以来源于文章、杂志、维基百科等等，并把它们都制作成txt格式。
