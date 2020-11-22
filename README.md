@@ -8,7 +8,7 @@
 
 ## 示例
 
-![demo1](http://www.xyu.ink/wp-content/uploads/2020/11/corpus2.png)
+<img alt="demo1" src="http://www.xyu.ink/wp-content/uploads/2020/11/corpus2.png" width=800>
 
 ## 准备txt格式的语料素材
 
